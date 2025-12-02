@@ -1,1 +1,6 @@
 @use 'tailwindcss';
+@use './styles/scrollbar';
+
+html {
+	scroll-behavior: smooth;
+}
