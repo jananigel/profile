@@ -1,14 +1,16 @@
 import { useLocation } from 'react-router-dom';
 
-import type React from 'react';
+import MainNavbar from '../../components/main-navbar/main-navbar';
 
-const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+import type { BaseChildren } from '../../../core/interfaces/base-children.interface';
+
+const MainLayout = ({ children }: BaseChildren) => {
 	const location = useLocation();
 	const isDashboard = location.pathname === '/dashboard';
 
 	return (
 		<div className="min-h-screen bg-slate-950 selection:bg-primary-500/30 font-sans">
-			<header>Header</header>
+			<MainNavbar></MainNavbar>
 			<main>{children}</main>
 			{!isDashboard && <footer>Footer</footer>}
 		</div>

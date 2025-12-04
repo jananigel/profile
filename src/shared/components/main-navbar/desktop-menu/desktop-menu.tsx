@@ -1,0 +1,64 @@
+import { motion } from 'framer-motion';
+import { Home, LayoutDashboard } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { MAIN_NAVS } from '../../../../core/constants/main-navs.const';
+
+const DesktopMenu = () => {
+	const navigate = useNavigate();
+	const location = useLocation();
+	const isDashboard = location.pathname === '/dashboard';
+
+	const handleNavClick = (href: string) => {
+		if (isDashboard) {
+			navigate('/');
+			// Allow time for navigation before scrolling
+			setTimeout(() => {
+				const element = document.querySelector(href);
+				element?.scrollIntoView({ behavior: 'smooth' });
+			}, 100);
+		} else {
+			const element = document.querySelector(href);
+			element?.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
+
+	return (
+		<div className="hidden md:block">
+			<div className="ml-10 flex items-center space-x-8">
+				{!isDashboard ? (
+					<>
+						{MAIN_NAVS.map((link) => (
+							<button
+								key={link.name}
+								onClick={() => handleNavClick(link.href)}
+								className="relative text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors group">
+								{link.name}
+								<span className="absolute bottom-1 left-3 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-[calc(100%-24px)]" />
+							</button>
+						))}
+						<motion.button
+							onClick={() => navigate('/dashboard')}
+							whileHover={{ scale: 1.05 }}
+							whileTap={{ scale: 0.95 }}
+							className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-primary-400 px-4 py-2 rounded-md text-sm font-bold transition-all border border-slate-700 hover:border-primary-500/50">
+							<LayoutDashboard size={16} />
+							Dashboard
+						</motion.button>
+					</>
+				) : (
+					<motion.button
+						onClick={() => navigate('/')}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className="flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-4 py-2 rounded-md text-sm font-bold transition-all shadow-lg shadow-primary-500/20">
+						<Home size={16} />
+						Back to Home
+					</motion.button>
+				)}
+			</div>
+		</div>
+	);
+};
+
+export default DesktopMenu;
