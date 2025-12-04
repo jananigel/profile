@@ -1,8 +1,9 @@
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+
+import { useNavbar } from '../hooks/use-navbar.hook';
 
 const MobileMenu = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const { isOpen, setIsOpen } = useNavbar();
 	return (
 		<div className="-mr-2 flex md:hidden">
 			<button
