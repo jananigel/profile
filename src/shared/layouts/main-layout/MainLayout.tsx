@@ -1,8 +1,12 @@
 import { useLocation } from 'react-router-dom';
 
-import type React from 'react';
+import type { ReactNode } from 'react';
 
-const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface MainLayoutProps {
+	children: ReactNode;
+}
+
+const MainLayout = ({ children }: MainLayoutProps) => {
 	const location = useLocation();
 	const isDashboard = location.pathname === '/dashboard';
 
