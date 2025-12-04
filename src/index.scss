@@ -1,6 +1,8 @@
 @use 'tailwindcss';
 @use './styles/scrollbar';
 
+@use './styles/tailwind/theme';
+
 html {
 	scroll-behavior: smooth;
 }
