@@ -1,6 +1,6 @@
 import type { JobExperience } from '../interfaces/job-experiences.interface';
 
-export const EXPERIENCE: JobExperience[] = [
+export const JOP_EXPERIENCE: JobExperience[] = [
 	{
 		id: 'job1',
 		company: '亞古瑞得 (Aggrid)',
