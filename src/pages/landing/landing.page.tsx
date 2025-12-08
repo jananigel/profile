@@ -1,5 +1,11 @@
+import Hero from '../../shared/components/hero-section/hero-section';
+
 const LandingPage = () => {
-	return <>Landing page</>;
+	return (
+		<>
+			<Hero></Hero>
+		</>
+	);
 };
 
 export default LandingPage;
