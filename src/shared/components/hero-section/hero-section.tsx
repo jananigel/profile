@@ -6,7 +6,9 @@ const Hero = () => {
 	const navigate = useNavigate();
 	return (
 		<>
-			<section className="relative isolate min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+			<section
+				id="hero"
+				className="relative isolate min-h-screen flex items-center justify-center pt-16 overflow-hidden">
 				{/* Background Elements */}
 				<div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
 					<motion.div
