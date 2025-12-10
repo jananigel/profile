@@ -26,10 +26,12 @@ const ProjectCard = ({ project, index }: ProjectData) => {
 							<Code size={20} />
 						</div>
 						{project?.type === 'Github' && (
-							<Github
-								size={20}
-								className="text-slate-600 group-hover:text-slate-300 transition-colors"
-							/>
+							<a href={project.link} target="_blank" rel="noreferrer">
+								<Github
+									size={20}
+									className="text-slate-600 group-hover:text-slate-300 transition-colors"
+								/>
+							</a>
 						)}
 					</div>
 
