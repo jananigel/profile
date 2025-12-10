@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
+import { BASE_USER_INFO } from '../../../../core/constants';
+
 const ProjectTitle = () => {
 	return (
 		<>
@@ -13,7 +15,7 @@ const ProjectTitle = () => {
 					<p className="text-slate-400">Open source contributions and tools.</p>
 				</motion.div>
 				<motion.a
-					href="https://github.com"
+					href={BASE_USER_INFO.github}
 					target="_blank"
 					rel="noreferrer"
 					initial={{ opacity: 0, x: 20 }}
