@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Github, LayoutDashboard, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import { BASE_USER_INFO } from '../../../core/constants';
+
 const Hero = () => {
 	const navigate = useNavigate();
 	return (
@@ -41,13 +43,15 @@ const Hero = () => {
 				</div>
 				<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
 					<div className="space-y-6 max-w-3xl">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-							className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 backdrop-blur-sm">
-							<span className="text-primary-400 font-medium text-sm">Open to Opportunities</span>
-						</motion.div>
+						{BASE_USER_INFO.isOpenToOpportunities && (
+							<motion.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.5 }}
+								className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 backdrop-blur-sm">
+								<span className="text-primary-400 font-medium text-sm">Open to Opportunities</span>
+							</motion.div>
+						)}
 
 						<motion.h1
 							initial={{ opacity: 0, y: 20 }}
@@ -84,7 +88,7 @@ const Hero = () => {
 							</motion.button>
 							<div className="flex gap-4">
 								<motion.a
-									href="https://github.com"
+									href={BASE_USER_INFO.github}
 									target="_blank"
 									rel="noreferrer"
 									whileHover={{ scale: 1.1, backgroundColor: '#334155' }}
@@ -94,7 +98,7 @@ const Hero = () => {
 									<Github size={20} />
 								</motion.a>
 								<motion.a
-									href="mailto:example@email.com"
+									href={'mailto:' + BASE_USER_INFO.email}
 									whileHover={{ scale: 1.1, backgroundColor: '#334155' }}
 									whileTap={{ scale: 0.95 }}
 									className="p-3.5 rounded-lg bg-slate-800 text-slate-300 border border-slate-700"

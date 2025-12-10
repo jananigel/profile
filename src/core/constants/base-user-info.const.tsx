@@ -3,7 +3,7 @@ import type { BaseUserInfo } from '../interfaces';
 export const BASE_USER_INFO: BaseUserInfo = {
 	firstName: 'Kyle',
 	lastName: 'Chang',
-	fullName: 'Kyle Chang',
+	fullName: 'Fu-Kai Chang(Kyle)',
 	title: 'Senior Frontend',
 	github: 'https://github.com/jananigel',
 	email: 'kyle.chang.cfk@gmail.com',
