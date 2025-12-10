@@ -1,6 +1,8 @@
 import { Terminal } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import { BASE_USER_INFO } from '../../../../core/constants';
+
 import type { KeyboardEvent } from 'react';
 
 const Logo = () => {
@@ -28,7 +30,7 @@ const Logo = () => {
 					<Terminal size={20} className="text-white" />
 				</div>
 				<span className="text-xl font-bold tracking-tight text-slate-100">
-					Kyle <span className="text-primary-400">Portfolio</span>
+					{BASE_USER_INFO.firstName} <span className="text-primary-400">Portfolio</span>
 				</span>
 			</div>
 		</div>
