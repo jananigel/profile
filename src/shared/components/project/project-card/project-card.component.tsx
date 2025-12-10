@@ -1,6 +1,12 @@
 import { Code, Github } from 'lucide-react';
 
-const ProjectCard = () => {
+import type { Project } from '../../../../core/interfaces';
+
+interface ProjectData {
+	project: Project | undefined;
+}
+
+const ProjectCard = ({ project }: ProjectData) => {
 	return (
 		<>
 			<div className="group bg-slate-950 border border-slate-800 rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary-900/10 transition-all duration-300 flex flex-col">
@@ -18,18 +24,21 @@ const ProjectCard = () => {
 					</div>
 
 					<h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
-						Project Name
+						{project?.title || 'Title'}
 					</h3>
 
-					<p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">Description</p>
+					<p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
+						{project?.description || 'Description'}
+					</p>
 
 					<div className="flex flex-wrap gap-2 mt-auto">
-						<span className="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-900 rounded border border-slate-800">
-							Tech 1
-						</span>
-						<span className="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-900 rounded border border-slate-800">
-							Tech 2
-						</span>
+						{project?.techStack.map((techStack) => {
+							return (
+								<span className="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-900 rounded border border-slate-800">
+									{techStack}
+								</span>
+							);
+						})}
 					</div>
 				</div>
 			</div>
