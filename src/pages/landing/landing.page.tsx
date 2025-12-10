@@ -1,3 +1,4 @@
+import ContactSection from '../../shared/components/contact/contact-section.component';
 import EducationSection from '../../shared/components/education/education-section/education-section.component';
 import Experience from '../../shared/components/experience/experience';
 import Hero from '../../shared/components/hero-section/hero-section';
@@ -12,6 +13,7 @@ const LandingPage = () => {
 			<SkillSection></SkillSection>
 			<ProjectSection></ProjectSection>
 			<EducationSection></EducationSection>
+			<ContactSection></ContactSection>
 		</>
 	);
 };
