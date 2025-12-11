@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import './App.scss';
+import DashboardPage from './pages/dashboard/dashboard.page';
 import LandingPage from './pages/landing/landing.page';
 import MainLayout from './shared/layouts/main-layout/MainLayout';
 
@@ -12,6 +13,7 @@ function App() {
 				<MainLayout>
 					<Routes>
 						<Route path="/" element={<LandingPage />}></Route>
+						<Route path="/dashboard" element={<DashboardPage />}></Route>
 					</Routes>
 				</MainLayout>
 			</HashRouter>
