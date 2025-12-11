@@ -3,7 +3,7 @@ import type { JobExperience } from '../interfaces/job-experiences.interface';
 export const JOP_EXPERIENCE: JobExperience[] = [
 	{
 		id: 'job1',
-		company: '亞古瑞得 (Aggrid)',
+		company: '亞古瑞得 (Ackuretta)',
 		role: 'Frontend Developer',
 		period: '2022.07 - Present',
 		techStack: ['Vue2', 'Angular', 'Docker', 'Jenkins', 'IndexedDB', 'Web Worker'],
@@ -20,7 +20,7 @@ export const JOP_EXPERIENCE: JobExperience[] = [
 	},
 	{
 		id: 'job2',
-		company: '一通數位',
+		company: 'OTP Tech Limited (一通數位)',
 		role: 'Frontend Web Developer',
 		period: '2021.05 - 2022.07',
 		techStack: ['Angular', 'Ionic', 'NW.js', 'WebSocket', 'RxJS'],
@@ -33,7 +33,7 @@ export const JOP_EXPERIENCE: JobExperience[] = [
 	},
 	{
 		id: 'job3',
-		company: 'CBX Software',
+		company: 'CBX Software/TradeBeyond (科銳投資控股有限公司台灣分公司)',
 		role: 'Frontend Developer',
 		period: '2018.12 - 2021.05',
 		techStack: ['Angular', 'Ionic', 'Scrum', 'Gitflow', 'Matomo'],
@@ -46,7 +46,7 @@ export const JOP_EXPERIENCE: JobExperience[] = [
 	},
 	{
 		id: 'job4',
-		company: '佳世達科技 (Qisda)',
+		company: 'Qisda (佳世達科技)',
 		role: 'Frontend Web Developer',
 		period: '2017.10 - 2018.12',
 		techStack: ['Google Maps API', 'SSE', 'WebSocket', 'IOT'],
@@ -59,7 +59,7 @@ export const JOP_EXPERIENCE: JobExperience[] = [
 	},
 	{
 		id: 'job5',
-		company: 'Maxense Inc.',
+		company: 'Maxense Inc. (大理資訊)',
 		role: '前端開發 / 網站設計',
 		period: '2014.08 - 2017.09',
 		techStack: ['HTML', 'SASS', 'Bootstrap', 'Gulp', 'NodeJS'],
