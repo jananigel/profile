@@ -1,4 +1,6 @@
 import { STAT_INFO } from '../../core/constants';
+import CarrerSection from '../../shared/components/carrer-timeline/carrer-section/carrer-section.component';
+import { CarrerTimelineProvider } from '../../shared/components/carrer-timeline/contexts/carrer-timeline.context';
 import { DashboardTitle } from '../../shared/components/dashboard/';
 import StatCard from '../../shared/components/dashboard/stat-card/stat-card.component';
 
@@ -12,6 +14,7 @@ const DashboardPage = () => {
 						{STAT_INFO.map((stat, index) => {
 							return (
 								<StatCard
+									key={index}
 									title={stat.title}
 									value={stat.value}
 									icon={stat.icon}
@@ -19,6 +22,11 @@ const DashboardPage = () => {
 									delay={0.1 * index}></StatCard>
 							);
 						})}
+					</div>
+					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+						<CarrerTimelineProvider>
+							<CarrerSection></CarrerSection>
+						</CarrerTimelineProvider>
 					</div>
 				</div>
 			</div>
