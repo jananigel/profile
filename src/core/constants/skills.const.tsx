@@ -4,11 +4,11 @@ import type { Skill } from '../interfaces/skill.interface';
 
 export const SKILLS: Skill[] = [
 	// Frameworks
-	{ name: 'Vue 2/3', category: SKILL_CATEGORY.frameWork, highlight: true },
 	{ name: 'Angular (6+ Years)', category: SKILL_CATEGORY.frameWork, highlight: true },
-	{ name: 'React', category: SKILL_CATEGORY.frameWork },
+	{ name: 'Vue 2/3', category: SKILL_CATEGORY.frameWork, highlight: true },
+	{ name: 'React', category: SKILL_CATEGORY.frameWork, highlight: true },
 	{ name: 'TypeScript', category: SKILL_CATEGORY.frameWork, highlight: true },
-	{ name: 'Tailwind CSS', category: SKILL_CATEGORY.frameWork },
+	{ name: 'Tailwind CSS', category: SKILL_CATEGORY.frameWork, highlight: true },
 	{ name: 'RxJS', category: SKILL_CATEGORY.frameWork, highlight: true },
 	{ name: 'Ionic', category: SKILL_CATEGORY.frameWork },
 
