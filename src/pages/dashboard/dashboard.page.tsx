@@ -2,6 +2,7 @@ import { STAT_INFO } from '../../core/constants';
 import CarrerSection from '../../shared/components/carrer-timeline/carrer-section/carrer-section.component';
 import { CarrerTimelineProvider } from '../../shared/components/carrer-timeline/contexts/carrer-timeline.context';
 import { DashboardTitle } from '../../shared/components/dashboard/';
+import ActiveSkillSection from '../../shared/components/dashboard/active-skill-section/active-skill-section.component';
 import SkillDistribution from '../../shared/components/dashboard/skill-distribution/skill-distribution.component';
 import StatCard from '../../shared/components/dashboard/stat-card/stat-card.component';
 
@@ -30,6 +31,7 @@ const DashboardPage = () => {
 						</CarrerTimelineProvider>
 						<SkillDistribution></SkillDistribution>
 					</div>
+					<ActiveSkillSection></ActiveSkillSection>
 				</div>
 			</div>
 		</>
