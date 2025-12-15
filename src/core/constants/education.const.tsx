@@ -2,6 +2,7 @@ import type { Education } from '../interfaces';
 
 export const EDUCATION: Education[] = [
 	{
+		id: 'takming',
 		school: 'Takming University of Science and Technology',
 		degree: "Bachelor's degree",
 		department: 'Department of Multimedia Design',

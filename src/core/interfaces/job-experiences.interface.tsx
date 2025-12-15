@@ -5,4 +5,8 @@ export interface JobExperience {
 	period: string;
 	description: string[];
 	techStack: string[];
+	startYear: number;
+	startMonth?: number;
+	endYear?: number | null;
+	endMonth?: number | null;
 }

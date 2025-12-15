@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { CAREER } from '../../../../core/constants';
 
 const CareerSummary = () => {
+	const { t } = useTranslation('common');
 	return (
 		<>
 			<motion.div
@@ -13,15 +15,11 @@ const CareerSummary = () => {
 				className="lg:col-span-2 bg-slate-900/60 border border-slate-800 rounded-xl p-6 relative">
 				<div className="flex items-center gap-2 mb-4">
 					<Briefcase className="text-primary-500" size={20} />
-					<h3 className="text-lg font-bold text-white">Career Summary</h3>
+					<h3 className="text-lg font-bold text-white">{t('dashboard_career_summary_title')}</h3>
 				</div>
 				<div className="p-4 bg-slate-950/50 rounded-lg border border-slate-800/50">
 					<p className="text-slate-300 leading-relaxed">
-						Senior Frontend Engineer with over 10 years of experience specializing in
-						high-performance web applications. Expert in migrating legacy systems (Vue to Angular),
-						establishing CI/CD pipelines, and integrating IoT devices with web technologies. Proven
-						track record of optimizing system architecture, reducing code complexity by 70%, and
-						leading frontend teams.
+						{t('dashboard_career_summary_description')}
 					</p>
 				</div>
 
@@ -31,7 +29,7 @@ const CareerSummary = () => {
 						<span
 							key={tag}
 							className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-400 border border-slate-700">
-							{tag}
+							{t(tag)}
 						</span>
 					))}
 				</div>

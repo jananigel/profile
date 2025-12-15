@@ -7,25 +7,25 @@ import type { StatInfo } from '../interfaces';
 
 export const STAT_INFO: StatInfo[] = [
 	{
-		title: 'Years Experience',
+		titleKey: 'dashboard_stat_years_experience',
 		value: new Date().getFullYear() - 2012,
 		icon: Clock,
 		color: 'text-blue-500',
 	},
 	{
-		title: 'Total Projects',
+		titleKey: 'dashboard_stat_total_projects',
 		value: PROJECTS.length + 10,
 		icon: Layers,
 		color: 'text-purple-500',
 	},
 	{
-		title: 'Skill Nodes',
+		titleKey: 'dashboard_stat_skill_nodes',
 		value: SKILLS.length,
 		icon: Code2,
 		color: 'text-emerald-500',
 	},
 	{
-		title: 'System Efficiency',
+		titleKey: 'dashboard_stat_system_efficiency',
 		value: '98%',
 		icon: Zap,
 		color: 'text-yellow-500',

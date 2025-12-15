@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { useCarrerTimeline } from '../hooks/carrer-timeline.hook';
 
@@ -10,37 +11,30 @@ interface TimelineData {
 }
 
 const CarrerItem = ({ job, index }: TimelineData) => {
-	const { startYear, totalDurationYears } = useCarrerTimeline();
+	const { startYear, totalDurationYears, currentYear } = useCarrerTimeline();
+	const { t } = useTranslation('common');
 
-	const parseDate = (dateStr: string) => {
-		if (dateStr.includes('Present') || dateStr.includes('Now')) {
-			return new Date().getFullYear();
-		}
-
-		const [year] = dateStr.split('.');
-		return parseInt(year);
-	};
-
-	const getJobStyle = (period: string) => {
-		const [start, end] = period.split(' - ');
-		const startY = parseDate(start);
-		const endY = parseDate(end);
-
-		const left = ((startY - startYear) / totalDurationYears) * 100;
-		const width =
-			((endY - startY + (end.includes('Present') ? 1 : 0.5)) / totalDurationYears) * 100;
-
+	const toYearValue = (year: number, month = 1) => year + (month - 1) / 12;
+	const getJobStyle = () => {
+		const startValue = toYearValue(job.startYear, job.startMonth ?? 1);
+		const effectiveEndValue = job.endYear
+			? toYearValue(job.endYear, job.endMonth ?? 12)
+			: toYearValue(currentYear, new Date().getMonth() + 1);
+		const paddedEndValue = effectiveEndValue + (job.endYear ? 0.5 : 1);
+		const left = ((startValue - startYear) / totalDurationYears) * 100;
+		const width = ((paddedEndValue - startValue) / totalDurationYears) * 100;
 		return { left: `${Math.max(0, left)}%`, width: `${Math.max(5, width)}%` };
 	};
 
-	const jobStyle = getJobStyle(job.period);
+	const jobStyle = getJobStyle();
+	const jobKey = `landing_experience_${job.id}`;
 
 	return (
 		<>
 			<div key={job.id} className="relative z-10">
 				<div className="flex justify-between text-xs text-slate-400 mb-1 px-1">
-					<span>{job.role}</span>
-					<span>{job.company}</span>
+					<span>{t(`${jobKey}_role`, { defaultValue: job.role })}</span>
+					<span>{t(`${jobKey}_company`, { defaultValue: job.company })}</span>
 				</div>
 				<div className="h-3 w-full bg-slate-800 rounded-full overflow-hidden relative">
 					<motion.div

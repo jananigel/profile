@@ -1,7 +1,7 @@
 export const MAIN_NAVS = [
-	{ name: 'About', href: '#hero' },
-	{ name: 'Experience', href: '#experience' },
-	{ name: 'Skills', href: '#skills' },
-	{ name: 'Projects', href: '#projects' },
-	{ name: 'Contact', href: '#contact' },
+	{ name: 'navs_about', href: '#hero' },
+	{ name: 'navs_experience', href: '#experience' },
+	{ name: 'navs_skills', href: '#skills' },
+	{ name: 'navs_projects', href: '#projects' },
+	{ name: 'navs_contact', href: '#contact' },
 ];
