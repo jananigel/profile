@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import './App.scss';
 import DashboardPage from './pages/dashboard/dashboard.page';
 import LandingPage from './pages/landing/landing.page';
 import MainLayout from './shared/layouts/main-layout/MainLayout';
+import './core/services/i18n.service';
 
 function App() {
 	return (
