@@ -30,9 +30,9 @@ const CarrerSection = () => {
 					<div className="absolute inset-0 flex justify-between px-2 pointer-events-none opacity-20">
 						{Array(currentYear - startYear + 1)
 							.fill('')
-							.map((p) => (
+							.map((p, i) => (
 								<div
-									key={p}
+									key={i}
 									className="h-full w-px bg-slate-500 border-l border-dashed border-slate-500"
 								/>
 							))}

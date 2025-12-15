@@ -44,9 +44,11 @@ const ProjectCard = ({ project, index }: ProjectData) => {
 					</p>
 
 					<div className="flex flex-wrap gap-2 mt-auto">
-						{project?.techStack.map((techStack) => {
+						{project?.techStack.map((techStack, index) => {
 							return (
-								<span className="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-900 rounded border border-slate-800">
+								<span
+									key={index}
+									className="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-900 rounded border border-slate-800">
 									{techStack}
 								</span>
 							);
