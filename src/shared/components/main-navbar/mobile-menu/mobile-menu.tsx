@@ -1,11 +1,13 @@
 import { Menu, X } from 'lucide-react';
 
+import LanguageSelector from '../../language-selector/language-selector.component';
 import { useNavbar } from '../hooks/use-navbar.hook';
 
 const MobileMenu = () => {
 	const { isOpen, setIsOpen } = useNavbar();
 	return (
 		<div className="-mr-2 flex md:hidden">
+			<LanguageSelector></LanguageSelector>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
 				className="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">

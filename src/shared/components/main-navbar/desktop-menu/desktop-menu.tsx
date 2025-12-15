@@ -3,6 +3,7 @@ import { Home, LayoutDashboard } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { MAIN_NAVS } from '../../../../core/constants/main-navs.const';
+import LanguageSelector from '../../language-selector/language-selector.component';
 
 const DesktopMenu = () => {
 	const navigate = useNavigate();
@@ -24,8 +25,8 @@ const DesktopMenu = () => {
 	};
 
 	return (
-		<div className="hidden md:block">
-			<div className="ml-10 flex items-center space-x-8">
+		<div className="hidden md:block items-center gap-4">
+			<div className="flex items-center space-x-6">
 				{!isDashboard ? (
 					<>
 						{MAIN_NAVS.map((link) => (
@@ -56,6 +57,7 @@ const DesktopMenu = () => {
 						Back to Home
 					</motion.button>
 				)}
+				<LanguageSelector></LanguageSelector>
 			</div>
 		</div>
 	);
