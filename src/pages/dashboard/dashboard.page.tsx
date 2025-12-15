@@ -3,6 +3,7 @@ import CarrerSection from '../../shared/components/carrer-timeline/carrer-sectio
 import { CarrerTimelineProvider } from '../../shared/components/carrer-timeline/contexts/carrer-timeline.context';
 import { DashboardTitle } from '../../shared/components/dashboard/';
 import ActiveSkillSection from '../../shared/components/dashboard/active-skill-section/active-skill-section.component';
+import CareerSummary from '../../shared/components/dashboard/career-summary/career-summary.component';
 import SelfIntroCard from '../../shared/components/dashboard/self-intro-card/self-intro-card.component';
 import SkillDistribution from '../../shared/components/dashboard/skill-distribution/skill-distribution.component';
 import StatCard from '../../shared/components/dashboard/stat-card/stat-card.component';
@@ -28,6 +29,7 @@ const DashboardPage = () => {
 					</div>
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 						<SelfIntroCard></SelfIntroCard>
+						<CareerSummary></CareerSummary>
 					</div>
 					<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 						<CarrerTimelineProvider>
