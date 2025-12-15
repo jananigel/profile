@@ -1,14 +1,19 @@
 import { motion } from 'framer-motion';
 import { Code, Github } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import type { Project } from '../../../../core/interfaces';
 
 interface ProjectData {
-	project: Project | undefined;
+	project: Project;
 	index: number;
 }
 
 const ProjectCard = ({ project, index }: ProjectData) => {
+	const { t } = useTranslation('common');
+	const projectLocaleKey = `landing_projects_${project.id}`;
+	const projectTitle = t(`${projectLocaleKey}_title`, { defaultValue: project.title });
+	const projectDescription = t(`${projectLocaleKey}_description`, { defaultValue: project.description });
 	return (
 		<>
 			<motion.div
@@ -25,7 +30,7 @@ const ProjectCard = ({ project, index }: ProjectData) => {
 						<div className="p-2 bg-slate-900 rounded-lg text-primary-400 group-hover:text-white group-hover:bg-primary-500 transition-colors duration-300">
 							<Code size={20} />
 						</div>
-						{project?.type === 'Github' && (
+						{project.type === 'Github' && (
 							<a href={project.link} target="_blank" rel="noreferrer">
 								<Github
 									size={20}
@@ -35,16 +40,14 @@ const ProjectCard = ({ project, index }: ProjectData) => {
 						)}
 					</div>
 
-					<h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
-						{project?.title || 'Title'}
-					</h3>
+						<h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+							{projectTitle}
+						</h3>
 
-					<p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">
-						{project?.description || 'Description'}
-					</p>
+						<p className="text-slate-400 text-sm leading-relaxed mb-6 flex-1">{projectDescription}</p>
 
-					<div className="flex flex-wrap gap-2 mt-auto">
-						{project?.techStack.map((techStack, index) => {
+						<div className="flex flex-wrap gap-2 mt-auto">
+							{project.techStack.map((techStack, index) => {
 							return (
 								<span
 									key={index}

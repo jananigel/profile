@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { BASE_USER_INFO } from '../../../core/constants';
 const ContactSection = () => {
+	const { t } = useTranslation('common');
+	const footerRole = t('landing_contact_footer_role', { defaultValue: BASE_USER_INFO.title });
 	return (
 		<>
 			<footer id="contact" className="py-12 bg-slate-900/50 border-t border-slate-900">
@@ -11,22 +14,22 @@ const ContactSection = () => {
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}>
-						<h2 className="text-2xl font-bold text-white mb-6">Let's Connect</h2>
+						<h2 className="text-2xl font-bold text-white mb-6">{t('landing_contact_title')}</h2>
 						<p className="text-slate-400 mb-8 max-w-xl mx-auto">
 							{BASE_USER_INFO.isOpenToOpportunities && (
-								<strong>I'm currently looking for new opportunities. </strong>
+								<strong>{t('landing_contact_open_to_work')} </strong>
 							)}
-							Whether you have a question or just want to say hi, my inbox is always open.
+							{t('landing_contact_description')}
 						</p>
 
 						<div className="flex justify-center gap-6 mb-8">
 							{[
-								{ icon: Mail, label: 'Email Me', href: `mailto:${BASE_USER_INFO.email}` },
-								{ icon: Github, label: 'GitHub', href: BASE_USER_INFO.github },
-								{ icon: Linkedin, label: 'LinkedIn', href: BASE_USER_INFO.linkedin },
+								{ icon: Mail, labelKey: 'landing_contact_email_label', href: `mailto:${BASE_USER_INFO.email}` },
+								{ icon: Github, labelKey: 'landing_contact_github_label', href: BASE_USER_INFO.github },
+								{ icon: Linkedin, labelKey: 'landing_contact_linkedin_label', href: BASE_USER_INFO.linkedin },
 							].map((item, index) => (
 								<motion.a
-									key={item.label}
+									key={item.labelKey}
 									href={item.href}
 									target="_blank"
 									initial={{ opacity: 0, y: 20 }}
@@ -36,14 +39,14 @@ const ContactSection = () => {
 									transition={{ duration: 0.5, delay: index * 0.1 }}
 									className="flex items-center gap-2 text-slate-300 transition-colors">
 									<item.icon size={20} />
-									<span>{item.label}</span>
+									<span>{t(item.labelKey)}</span>
 								</motion.a>
 							))}
 						</div>
 
 						<div className="text-slate-600 text-sm">
-							© {new Date().getFullYear()} {BASE_USER_INFO.fullName} - {BASE_USER_INFO.title}.
-							<p>Built with React & Tailwind.</p>
+							© {new Date().getFullYear()} {BASE_USER_INFO.fullName} - {footerRole}.
+							<p>{t('landing_contact_footer_built')}</p>
 						</div>
 					</motion.div>
 				</div>

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_ICONS } from '../../../../core/constants/skill-category-icon.const';
+import { SKILL_CATEGORY_LABEL_KEYS } from '../../../../core/constants/skill-category.const';
 
 import type { Skill } from '../../../../core/interfaces/skill.interface';
 
@@ -8,6 +10,9 @@ type Skills = { skills: Skill[] };
 
 const SkillCard = ({ skills }: Skills) => {
 	const Icon = CATEGORY_ICONS[skills[0].category];
+	const { t } = useTranslation('common');
+	const categoryKey = SKILL_CATEGORY_LABEL_KEYS[skills[0].category];
+	const categoryLabel = categoryKey ? t(categoryKey) : skills[0].category;
 
 	const item = {
 		hidden: { opacity: 0, y: 20 },
@@ -24,7 +29,7 @@ const SkillCard = ({ skills }: Skills) => {
 					<div className="p-2 bg-slate-800 rounded-lg text-primary-400">
 						<Icon size={24} />
 					</div>
-					<h3 className="text-lg font-bold text-white">{skills[0].category}</h3>
+					<h3 className="text-lg font-bold text-white">{categoryLabel}</h3>
 				</div>
 
 				<div className="flex flex-wrap gap-2">

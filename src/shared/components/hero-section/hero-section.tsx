@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, LayoutDashboard, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { BASE_USER_INFO } from '../../../core/constants';
 
 const Hero = () => {
 	const navigate = useNavigate();
+	const { t } = useTranslation('common');
 	return (
 		<>
 			<section
@@ -49,7 +51,9 @@ const Hero = () => {
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.5 }}
 								className="inline-block px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800/50 backdrop-blur-sm">
-								<span className="text-primary-400 font-medium text-sm">Open to Opportunities</span>
+								<span className="text-primary-400 font-medium text-sm">
+									{t('landing_hero_badge')}
+								</span>
 							</motion.div>
 						)}
 
@@ -58,9 +62,10 @@ const Hero = () => {
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: 0.1 }}
 							className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
-							Senior Frontend <br className="hidden md:block" />
+							{t('landing_hero_title_primary')}{' '}
+							<br className="hidden md:block" />
 							<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-indigo-400">
-								System Architect
+								{t('landing_hero_title_highlight')}
 							</span>
 						</motion.h1>
 
@@ -69,8 +74,7 @@ const Hero = () => {
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5, delay: 0.2 }}
 							className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-							Specializing in high-performance web applications, complex system migrations (Vue to
-							Angular), and bridging the gap between Frontend, IOT, and DevOps.
+							{t('landing_hero_description')}
 						</motion.p>
 
 						<motion.div
@@ -84,7 +88,7 @@ const Hero = () => {
 								whileTap={{ scale: 0.95 }}
 								className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-primary-600 hover:bg-primary-500 text-white font-bold transition-all shadow-lg shadow-primary-500/25 flex items-center justify-center gap-2">
 								<LayoutDashboard size={20} />
-								Open Dashboard
+								{t('landing_hero_cta_dashboard')}
 							</motion.button>
 							<div className="flex gap-4">
 								<motion.a
@@ -94,7 +98,7 @@ const Hero = () => {
 									whileHover={{ scale: 1.1, backgroundColor: '#334155' }}
 									whileTap={{ scale: 0.95 }}
 									className="p-3.5 rounded-lg bg-slate-800 text-slate-300 border border-slate-700"
-									aria-label="GitHub">
+									aria-label={t('landing_hero_social_github')}>
 									<Github size={20} />
 								</motion.a>
 								<motion.a
@@ -102,7 +106,7 @@ const Hero = () => {
 									whileHover={{ scale: 1.1, backgroundColor: '#334155' }}
 									whileTap={{ scale: 0.95 }}
 									className="p-3.5 rounded-lg bg-slate-800 text-slate-300 border border-slate-700"
-									aria-label="Email">
+									aria-label={t('landing_hero_social_email')}>
 									<Mail size={20} />
 								</motion.a>
 							</div>
@@ -116,7 +120,7 @@ const Hero = () => {
 						transition={{ duration: 1, delay: 0.5 }}
 						className="mt-20 pt-10 border-t border-slate-800/50 w-full">
 						<p className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6">
-							Core Technologies
+							{t('landing_hero_core_tech')}
 						</p>
 						<div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-400 font-medium">
 							{[

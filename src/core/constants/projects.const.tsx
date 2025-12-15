@@ -4,6 +4,7 @@ import type { Project } from '../interfaces';
 
 export const PROJECTS: Project[] = [
 	{
+		id: 'angular_video_player',
 		title: 'Angular - Video Player',
 		description:
 			'Integrate Youtube API, Organize the project structure for scalability and maintainability.',
@@ -12,6 +13,7 @@ export const PROJECTS: Project[] = [
 		link: `${BASE_USER_INFO.github}/angular-video-youtube`,
 	},
 	{
+		id: 'angular_resizable_layout',
 		title: 'Angular - Resizable Layout',
 		description:
 			'Create a directive to enable the Layout to be resizable by the user, enhancing UI flexibility.',
@@ -20,6 +22,7 @@ export const PROJECTS: Project[] = [
 		link: `${BASE_USER_INFO.github}/angular-resizable-bar-for-layout`,
 	},
 	{
+		id: 'react_login',
 		title: 'React - Login Releate',
 		description:
 			'A comprehensive login system with form validation, password generator, toast component, and modal component.',

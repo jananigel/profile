@@ -28,9 +28,9 @@ const CarrerSection = () => {
 				<div className="relative space-y-6">
 					{/* Grid Lines */}
 					<div className="absolute inset-0 flex justify-between px-2 pointer-events-none opacity-20">
-						{Array(currentYear - startYear + 1)
-							.fill('')
-							.map((p, i) => (
+					{Array(currentYear - startYear + 1)
+						.fill('')
+						.map((_, i) => (
 								<div
 									key={i}
 									className="h-full w-px bg-slate-500 border-l border-dashed border-slate-500"

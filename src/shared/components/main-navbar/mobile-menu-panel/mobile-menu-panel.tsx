@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Home, LayoutDashboard } from 'lucide-react';
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { MAIN_NAVS } from '../../../../core/constants/main-navs.const';
@@ -11,6 +11,7 @@ const MobileMenuPanel = () => {
 	const location = useLocation();
 	const { isOpen, setIsOpen } = useNavbar();
 	const isDashboard = location.pathname === '/dashboard';
+	const { t } = useTranslation('common');
 
 	const handleNavClick = (href: string) => {
 		if (isDashboard) {
@@ -39,7 +40,7 @@ const MobileMenuPanel = () => {
 								key={link.name}
 								onClick={() => handleNavClick(link.href)}
 								className="w-full text-left text-slate-300 hover:text-white hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-medium">
-								{link.name}
+								{t(link.name)}
 							</button>
 						))}
 						<button
@@ -49,7 +50,7 @@ const MobileMenuPanel = () => {
 							}}
 							className="w-full text-left text-primary-400 hover:bg-slate-800 block px-3 py-2 rounded-md text-base font-bold flex items-center gap-2">
 							<LayoutDashboard size={18} />
-							Dashboard
+							{t('navbar_dashboard')}
 						</button>
 					</>
 				) : (
@@ -60,7 +61,7 @@ const MobileMenuPanel = () => {
 						}}
 						className="w-full text-left text-white bg-primary-600 hover:bg-primary-500 block px-3 py-2 rounded-md text-base font-bold flex items-center gap-2">
 						<Home size={18} />
-						Back to Home
+						{t('navbar_backToHome')}
 					</button>
 				)}
 			</div>
