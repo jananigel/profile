@@ -1,69 +1,69 @@
-# React + TypeScript + Vite
+# Personal Profile & Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A bilingual single-page application that promotes an experienced system-focused frontend engineer.
+The landing page highlights the hero story, projects, skills, and contact entry points, while the
+dashboard view surfaces stats, timelines, and data-heavy widgets for deeper exploration.
 
-Currently, two official plugins are available:
+## About the Developer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Name:** Fu-Kai (Kyle) Chang — Senior Frontend / System Architect based in Taiwan
+- **Focus:** Web performance, front-end architecture, DevOps automation, IoT interfaces, and
+  multi-framework migrations (Vue ⇄ Angular ⇄ React)
+- **Availability:** Open to global opportunities and collaborations
 
-## Expanding the ESLint configuration
+## Project Architecture
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├─ pages/
+│  ├─ landing/                # Marketing-style profile composed of hero, experience, and contact sections
+│  └─ dashboard/              # Data dashboard with stats, timeline, active skills, and cards
+├─ shared/components/
+│  ├─ hero-section, experience, project, education, contact
+│  ├─ dashboard/              # Cards & widgets specific to the dashboard view
+│  └─ carrer-timeline/        # Timeline provider, hook, and visual components
+├─ core/
+│  ├─ constants/              # Data sources (jobs, projects, skills, stats, education, navs)
+│  ├─ interfaces & types      # Strongly-typed models for all constants
+│  └─ services/i18n.service   # i18next setup with HTTP backend + language detector
+├─ shared/layouts/            # MainLayout containing navbar + page content slot
+└─ styles/                    # Tailwind theme overrides and SCSS utilities
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Design Logic
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Data-driven UI:** All content (jobs, projects, education, stats) lives in `core/constants`,
+   which keeps components declarative and simplifies localization.
+2. **Full i18n coverage:** i18next loads JSON resources from `/public/translations/common/*`. Both
+   landing and dashboard read copy via `useTranslation`, supporting seamless English
+   ⇄ 繁體中文 switches.
+3. **Motion-first experience:** Framer Motion powers hero flourishes, cards, counters, and timeline
+   animations, helping the portfolio feel alive without compromising performance.
+4. **Responsive layout:** Tailwind utility classes align typography, spacing, and dark-mode colors;
+   grid-based sections scale across mobile → desktop transparently.
+5. **Reusable shells:** The navbar, layout wrappers, and timeline provider expose hooks/contexts so
+   that future sections can plug in without duplicating logic.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Technology Stack
+
+- **Framework & Tooling:** React 18, TypeScript, Vite, React Router, ESLint, Prettier
+- **Styling & UI:** Tailwind CSS, custom SCSS utilities, Lucide React icons
+- **Animation & UX:** Framer Motion, responsive grids, motion-enhanced hover states
+- **Internationalization:** i18next, `i18next-http-backend`, `i18next-browser-languagedetector`
+- **State/Data Layer:** Typed constant files + interfaces for jobs, skills, stats, projects, and
+  education
+
+## Getting Started
+
+```bash
+pnpm install  # or npm install / yarn
+pnpm dev      # starts Vite dev server with HMR
+dev server URL: http://localhost:5173
+```
+
+### Build & Preview
+
+```bash
+pnpm build    # type-check + production bundle
+pnpm preview  # serve the build output for verification
 ```
