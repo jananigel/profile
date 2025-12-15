@@ -1,12 +1,28 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, Languages } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { LANGUAGES } from '../../../core/constants';
 
 const LanguageSelector = () => {
 	const langMenuRef = useRef<HTMLDivElement>(null);
 	const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+	const { t, i18n } = useTranslation();
+	const changeLanguage = (lang: string) => {
+		i18n.changeLanguage(lang);
+		setIsLangMenuOpen(false);
+	};
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+				setIsLangMenuOpen(false);
+			}
+		};
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => document.removeEventListener('mousedown', handleClickOutside);
+	}, []);
 
 	return (
 		<>
@@ -28,9 +44,12 @@ const LanguageSelector = () => {
 								{LANGUAGES.map((lang) => (
 									<button
 										key={lang.code}
+										onClick={() => changeLanguage(lang.code)}
 										className="w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white flex items-center justify-between">
-										{lang.label}
-										<Check size={14} className="text-primary-500" />
+										{t(lang.label)}
+										{i18n.language.startsWith(lang.code) && (
+											<Check size={14} className="text-primary-500" />
+										)}
 									</button>
 								))}
 							</div>

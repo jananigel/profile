@@ -1,4 +1,4 @@
 export const LANGUAGES = [
-	{ code: 'en', label: 'English' },
-	{ code: 'zh-tw', label: '繁體中文' },
+	{ code: 'en', label: 'lang_en' },
+	{ code: 'zh-TW', label: 'lang_zhTw' },
 ];
