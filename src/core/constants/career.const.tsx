@@ -1,7 +1,7 @@
 export const CAREER = [
-	'Senior Frontend Developer',
-	'System Architecture',
-	'CI/CD',
-	'IoT Integration',
-	'Team Lead',
-];
+	'dashboard_career_tag_frontend',
+	'dashboard_career_tag_architecture',
+	'dashboard_career_tag_ci_cd',
+	'dashboard_career_tag_iot',
+	'dashboard_career_tag_teamlead',
+] as const;

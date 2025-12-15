@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { JOP_EXPERIENCE } from '../../../../core/constants/job-experiences.const';
 import CarrerItem from '../carrer-item/carrer-item.component';
@@ -7,6 +8,7 @@ import { useCarrerTimeline } from '../hooks/carrer-timeline.hook';
 
 const CarrerSection = () => {
 	const { currentYear, startYear } = useCarrerTimeline();
+	const { t } = useTranslation('common');
 
 	return (
 		<>
@@ -18,7 +20,7 @@ const CarrerSection = () => {
 				<div className="flex items-center justify-between mb-6">
 					<h3 className="text-lg font-bold text-white flex items-center gap-2">
 						<Target size={18} className="text-primary-400" />
-						Career Timeline
+						{t('dashboard_career_timeline_title')}
 					</h3>
 					<div className="text-xs font-mono text-slate-500">
 						{startYear} - {currentYear}
@@ -48,7 +50,7 @@ const CarrerSection = () => {
 						<span>2015</span>
 						<span>2018</span>
 						<span>2021</span>
-						<span>NOW</span>
+						<span>{t('dashboard_career_timeline_now')}</span>
 					</div>
 				</div>
 			</motion.div>

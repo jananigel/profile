@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 
 export interface StatInfo {
-	title: string;
+	titleKey: string;
 	value: string | number;
 	icon: LucideIcon;
 	color: string;
