@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { JOP_EXPERIENCE } from '../../../../core/constants/job-experiences.const';
 
 const ExperienceCard = () => {
+	const { t } = useTranslation('common');
 	return (
 		<>
 			{JOP_EXPERIENCE.map((job, index) => (
@@ -29,13 +31,15 @@ const ExperienceCard = () => {
 						<div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-2">
 							<div>
 								<h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-									{job.role}
-									<span className="text-primary-400 text-lg font-normal">@ {job.company}</span>
+									{t(`landing_experience_${job.id}_role`, { defaultValue: job.role })}
+									<span className="text-primary-400 text-lg font-normal">
+										@ {t(`landing_experience_${job.id}_company`, { defaultValue: job.company })}
+									</span>
 								</h3>
 							</div>
 							<div className="flex items-center text-slate-400 text-sm bg-slate-900/50 px-3 py-1 rounded-full border border-slate-800 w-fit">
 								<Calendar size={14} className="mr-2" />
-								{job.period}
+								{t(`landing_experience_${job.id}_period`, { defaultValue: job.period })}
 							</div>
 						</div>
 
@@ -43,7 +47,9 @@ const ExperienceCard = () => {
 							{job.description.map((desc, idx) => (
 								<div key={idx} className="flex items-start text-slate-300">
 									<span className="mr-2 mt-1.5 w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
-									<p className="leading-relaxed">{desc}</p>
+									<p className="leading-relaxed">
+										{t(`landing_experience_${job.id}_desc_${idx + 1}`, { defaultValue: desc })}
+									</p>
 								</div>
 							))}
 						</div>

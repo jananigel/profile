@@ -18,8 +18,8 @@ const DashboardPage = () => {
 						{STAT_INFO.map((stat, index) => {
 							return (
 								<StatCard
-									key={index}
-									title={stat.title}
+									key={stat.titleKey}
+									titleKey={stat.titleKey}
 									value={stat.value}
 									icon={stat.icon}
 									color={stat.color}

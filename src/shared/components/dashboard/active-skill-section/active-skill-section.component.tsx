@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { Trophy } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import { SKILLS } from '../../../../core/constants/skills.const';
 
 const ActiveSkillSection = () => {
+	const { t } = useTranslation('common');
 	return (
 		<>
 			<motion.div
@@ -13,7 +15,7 @@ const ActiveSkillSection = () => {
 				className="bg-slate-900/60 border border-slate-800 rounded-xl p-6">
 				<h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
 					<Trophy size={18} className="text-primary-400" />
-					Active Tech Stack
+					{t('dashboard_active_skills_title')}
 				</h3>
 				<div className="flex flex-wrap gap-2">
 					{SKILLS.filter((s) => s.highlight).map((skill, i) => (

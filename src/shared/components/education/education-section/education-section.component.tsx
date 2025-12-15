@@ -12,11 +12,9 @@ const EducationSection = () => {
 					{/* Cards */}
 					<div
 						className={`grid grid-cols-1 ${EDUCATION.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-4xl mx-auto'} gap-6`}>
-						{EDUCATION.map((education, index) => {
-							return (
-								<EducationCard key={index} education={education} index={index}></EducationCard>
-							);
-						})}
+						{EDUCATION.map((education, index) => (
+							<EducationCard key={education.id} education={education} index={index}></EducationCard>
+						))}
 					</div>
 				</div>
 			</section>
