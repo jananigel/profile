@@ -9,7 +9,7 @@ export const getWeather = async (lat: number, lon: number): Promise<WeatherData>
 		params: {
 			latitude: lat,
 			longitude: lon,
-			curret: 'temperature_2m,weather_code,is_day',
+			current: 'temperature_2m,weather_code,is_day',
 			timezone: 'auto',
 		},
 	});
