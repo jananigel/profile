@@ -1,12 +1,14 @@
 import { Menu, X } from 'lucide-react';
 
 import LanguageSelector from '../../language-selector/language-selector.component';
+import Weather from '../../weather/weather.component';
 import { useNavbar } from '../hooks/use-navbar.hook';
 
 const MobileMenu = () => {
 	const { isOpen, setIsOpen } = useNavbar();
 	return (
 		<div className="-mr-2 flex md:hidden">
+			<Weather></Weather>
 			<LanguageSelector></LanguageSelector>
 			<button
 				onClick={() => setIsOpen(!isOpen)}

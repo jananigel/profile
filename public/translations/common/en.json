@@ -114,5 +114,6 @@
 	"dashboard_skill_distribution_title": "Skill Distribution",
 	"dashboard_skill_distribution_modules": "{{count}} Modules",
 	"dashboard_career_timeline_title": "Career Timeline",
-	"dashboard_career_timeline_now": "NOW"
+	"dashboard_career_timeline_now": "NOW",
+	"weather_title": "Current Weather"
 }

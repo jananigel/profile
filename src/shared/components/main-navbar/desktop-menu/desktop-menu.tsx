@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { MAIN_NAVS } from '../../../../core/constants/main-navs.const';
 import LanguageSelector from '../../language-selector/language-selector.component';
+import Weather from '../../weather/weather.component';
 
 const DesktopMenu = () => {
 	const { t } = useTranslation('common');
@@ -60,6 +61,7 @@ const DesktopMenu = () => {
 					</motion.button>
 				)}
 				<LanguageSelector></LanguageSelector>
+				<Weather></Weather>
 			</div>
 		</div>
 	);
