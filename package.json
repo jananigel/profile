@@ -1,17 +1,20 @@
 {
-	"name": "tetirs-vite-react",
+	"name": "profile",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
+	"homepage": "https://jananigel.github.io/profile",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"gh-deploy": "npx gh-pages -d dist -t"
 	},
 	"dependencies": {
 		"@types/react-i18next": "^7.8.3",
 		"framer-motion": "^12.23.25",
+		"gh-pages": "^6.3.0",
 		"i18next": "^25.7.2",
 		"i18next-browser-languagedetector": "^8.2.0",
 		"i18next-http-backend": "^3.0.2",
