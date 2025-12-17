@@ -8,13 +8,13 @@ i18n
 	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
-		fallbackLng: 'zh-TW',
+		fallbackLng: 'en',
 		detection: {
 			order: ['querystring', 'navigator'],
 			caches: [],
 		},
 		backend: {
-			loadPath: '/translations/{{ns}}/{{lng}}.json',
+			loadPath: `${import.meta.env.BASE_URL}translations/{{ns}}/{{lng}}.json`,
 		},
 		ns: ['common'],
 		defaultNS: 'common',
