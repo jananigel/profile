@@ -114,5 +114,6 @@
 	"dashboard_skill_distribution_title": "技能分佈",
 	"dashboard_skill_distribution_modules": "{{count}} 模組",
 	"dashboard_career_timeline_title": "職涯時間軸",
-	"dashboard_career_timeline_now": "現在"
+	"dashboard_career_timeline_now": "現在",
+	"weather_title": "當前天氣"
 }
